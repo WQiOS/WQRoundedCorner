@@ -2,16 +2,16 @@
 //生成带圆角的图片
 #import <UIKit/UIKit.h>
 
-struct XYRadius {
+struct WQRadius {
     CGFloat topLeftRadius;
     CGFloat topRightRadius;
     CGFloat bottomLeftRadius;
     CGFloat bottomRightRadius;
 };
-typedef struct XYRadius XYRadius;
+typedef struct WQRadius WQRadius;
 
-static inline XYRadius XYRadiusMake(CGFloat topLeftRadius, CGFloat topRightRadius, CGFloat bottomLeftRadius, CGFloat bottomRightRadius) {
-    XYRadius radius;
+static inline WQRadius WQRadiusMake(CGFloat topLeftRadius, CGFloat topRightRadius, CGFloat bottomLeftRadius, CGFloat bottomRightRadius) {
+    WQRadius radius;
     radius.topLeftRadius = topLeftRadius;
     radius.topRightRadius = topRightRadius;
     radius.bottomLeftRadius = bottomLeftRadius;
@@ -19,26 +19,26 @@ static inline XYRadius XYRadiusMake(CGFloat topLeftRadius, CGFloat topRightRadiu
     return radius;
 }
 
-static inline NSString * NSStringFromXYRadius(XYRadius radius) {
+static inline NSString * NSStringFromWQRadius(WQRadius radius) {
     return [NSString stringWithFormat:@"{%.2f, %.2f, %.2f, %.2f}", radius.topLeftRadius, radius.topRightRadius, radius.bottomLeftRadius, radius.bottomRightRadius];
 }
 
 @interface UIImage (RoundedCorner)
 
-- (UIImage *)xySetRadius:(CGFloat)radius
+- (UIImage *)setRadius:(CGFloat)radius
                      size:(CGSize)size;
 
-- (UIImage *)xySetRadius:(CGFloat)radius
+- (UIImage *)setRadius:(CGFloat)radius
                      size:(CGSize)size
               contentMode:(UIViewContentMode)contentMode;
 
-+ (UIImage *)xySetRadius:(CGFloat)radius
++ (UIImage *)setRadius:(CGFloat)radius
                      size:(CGSize)size
               borderColor:(UIColor *)borderColor
               borderWidth:(CGFloat)borderWidth
           backgroundColor:(UIColor *)backgroundColor;
 
-+ (UIImage *)xySetXYRadius:(XYRadius)radius
++ (UIImage *)setWQRadius:(WQRadius)radius
                       image:(UIImage *)image
                        size:(CGSize)size
                 borderColor:(UIColor *)borderColor

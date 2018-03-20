@@ -1,21 +1,21 @@
 
-#import "UIImage+XYRadius.h"
+#import "UIImage+WQRadius.h"
 
 @implementation UIImage (RoundedCorner)
 
-- (UIImage *)xySetRadius:(CGFloat)radius size:(CGSize)size {
-    return [UIImage xySetXYRadius:XYRadiusMake(radius, radius, radius, radius) image:self size:size borderColor:nil borderWidth:0 backgroundColor:nil withContentMode:UIViewContentModeScaleToFill];
+- (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size {
+    return [UIImage setWQRadius:WQRadiusMake(radius, radius, radius, radius) image:self size:size borderColor:nil borderWidth:0 backgroundColor:nil withContentMode:UIViewContentModeScaleToFill];
 }
 
-- (UIImage *)xySetRadius:(CGFloat)radius size:(CGSize)size contentMode:(UIViewContentMode)contentMode {
-        return [UIImage xySetXYRadius:XYRadiusMake(radius, radius, radius, radius) image:self size:size borderColor:nil borderWidth:0 backgroundColor:nil withContentMode:contentMode];
+- (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size contentMode:(UIViewContentMode)contentMode {
+        return [UIImage setWQRadius:WQRadiusMake(radius, radius, radius, radius) image:self size:size borderColor:nil borderWidth:0 backgroundColor:nil withContentMode:contentMode];
 }
 
-+ (UIImage *)xySetRadius:(CGFloat)radius size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor {
-    return [UIImage xySetXYRadius:XYRadiusMake(radius, radius, radius, radius) image:nil size:size borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor withContentMode:UIViewContentModeScaleToFill];
++ (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor {
+    return [UIImage setWQRadius:WQRadiusMake(radius, radius, radius, radius) image:nil size:size borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor withContentMode:UIViewContentModeScaleToFill];
 }
 
-+ (UIImage *)xySetXYRadius:(XYRadius)radius image:(UIImage *)image size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor withContentMode:(UIViewContentMode)contentMode {
++ (UIImage *)setWQRadius:(WQRadius)radius image:(UIImage *)image size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor withContentMode:(UIViewContentMode)contentMode {
     
     if (!backgroundColor) {
         backgroundColor = [UIColor whiteColor];
@@ -33,7 +33,7 @@
     CGContextTranslateCTM(context, 0, -rect.size.height);
     CGFloat height = size.height;
     CGFloat width = size.width;
-    radius = [UIImage transformationXYRadius:radius size:size borderWidth:borderWidth];
+    radius = [UIImage transformationWQRadius:radius size:size borderWidth:borderWidth];
     
     UIBezierPath *path = [[UIBezierPath alloc] init];
     [path addArcWithCenter:CGPointMake(width - radius.topRightRadius, height - radius.topRightRadius) radius:radius.topRightRadius startAngle:0 endAngle:M_PI_2 clockwise:YES];
@@ -53,7 +53,7 @@
     return currentImage;
 }
 
-+ (XYRadius)transformationXYRadius:(XYRadius)radius size:(CGSize)size borderWidth:(CGFloat)borderWidth {
++ (WQRadius)transformationWQRadius:(WQRadius)radius size:(CGSize)size borderWidth:(CGFloat)borderWidth {
     radius.topLeftRadius = minimum(size.width, size.height, radius.topLeftRadius);
     radius.topRightRadius = minimum(size.width - radius.topLeftRadius, size.height, radius.topRightRadius);
     radius.bottomLeftRadius = minimum(size.width, size.height - radius.topLeftRadius, radius.bottomLeftRadius);
