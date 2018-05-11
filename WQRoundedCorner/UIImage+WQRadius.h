@@ -1,5 +1,8 @@
 
-//生成带圆角的图片
+/**
+ 本库的主要用途：UIImage生成带圆角的图片
+ */
+
 #import <UIKit/UIKit.h>
 
 struct WQRadius {
@@ -8,6 +11,7 @@ struct WQRadius {
     CGFloat bottomLeftRadius;
     CGFloat bottomRightRadius;
 };
+
 typedef struct WQRadius WQRadius;
 
 static inline WQRadius WQRadiusMake(CGFloat topLeftRadius, CGFloat topRightRadius, CGFloat bottomLeftRadius, CGFloat bottomRightRadius) {
@@ -25,25 +29,12 @@ static inline NSString * NSStringFromWQRadius(WQRadius radius) {
 
 @interface UIImage (RoundedCorner)
 
-- (UIImage *)setRadius:(CGFloat)radius
-                     size:(CGSize)size;
+- (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size;
 
-- (UIImage *)setRadius:(CGFloat)radius
-                     size:(CGSize)size
-              contentMode:(UIViewContentMode)contentMode;
+- (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size contentMode:(UIViewContentMode)contentMode;
 
-+ (UIImage *)setRadius:(CGFloat)radius
-                     size:(CGSize)size
-              borderColor:(UIColor *)borderColor
-              borderWidth:(CGFloat)borderWidth
-          backgroundColor:(UIColor *)backgroundColor;
++ (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
 
-+ (UIImage *)setWQRadius:(WQRadius)radius
-                      image:(UIImage *)image
-                       size:(CGSize)size
-                borderColor:(UIColor *)borderColor
-                borderWidth:(CGFloat)borderWidth
-            backgroundColor:(UIColor *)backgroundColor
-            withContentMode:(UIViewContentMode)contentMode;
++ (UIImage *)wqSetWQRadius:(WQRadius)radius image:(UIImage *)image size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor withContentMode:(UIViewContentMode)contentMode;
 
 @end

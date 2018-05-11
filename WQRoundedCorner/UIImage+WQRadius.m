@@ -3,19 +3,19 @@
 
 @implementation UIImage (RoundedCorner)
 
-- (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size {
-    return [UIImage setWQRadius:WQRadiusMake(radius, radius, radius, radius) image:self size:size borderColor:nil borderWidth:0 backgroundColor:nil withContentMode:UIViewContentModeScaleToFill];
+- (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size {
+    return [UIImage wqSetWQRadius:WQRadiusMake(radius, radius, radius, radius) image:self size:size borderColor:nil borderWidth:0 backgroundColor:nil withContentMode:UIViewContentModeScaleToFill];
 }
 
-- (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size contentMode:(UIViewContentMode)contentMode {
-        return [UIImage setWQRadius:WQRadiusMake(radius, radius, radius, radius) image:self size:size borderColor:nil borderWidth:0 backgroundColor:nil withContentMode:contentMode];
+- (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size contentMode:(UIViewContentMode)contentMode {
+        return [UIImage wqSetWQRadius:WQRadiusMake(radius, radius, radius, radius) image:self size:size borderColor:nil borderWidth:0 backgroundColor:nil withContentMode:contentMode];
 }
 
-+ (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor {
-    return [UIImage setWQRadius:WQRadiusMake(radius, radius, radius, radius) image:nil size:size borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor withContentMode:UIViewContentModeScaleToFill];
++ (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor {
+    return [UIImage wqSetWQRadius:WQRadiusMake(radius, radius, radius, radius) image:nil size:size borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor withContentMode:UIViewContentModeScaleToFill];
 }
 
-+ (UIImage *)setWQRadius:(WQRadius)radius image:(UIImage *)image size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor withContentMode:(UIViewContentMode)contentMode {
++ (UIImage *)wqSetWQRadius:(WQRadius)radius image:(UIImage *)image size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor withContentMode:(UIViewContentMode)contentMode {
     
     if (!backgroundColor) {
         backgroundColor = [UIColor whiteColor];
