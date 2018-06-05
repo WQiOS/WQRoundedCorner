@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "WQRoundedCorner"
-s.version      = "0.0.2"
+s.version      = "0.0.3"
 s.summary      = "设置UIView、UIImageView、UIButton等视图的圆角和阴影"
 s.homepage     = "https://github.com/WQiOS/WQRoundedCorner"
 s.license      = "MIT"

@@ -29,12 +29,12 @@ static inline NSString * NSStringFromWQRadius(WQRadius radius) {
 
 @interface UIImage (RoundedCorner)
 
-- (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size;
+- (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size;
 
-- (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size contentMode:(UIViewContentMode)contentMode;
+- (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size contentMode:(UIViewContentMode)contentMode;
 
-+ (UIImage *)wqSetRadius:(CGFloat)radius size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
++ (UIImage *)setRadius:(CGFloat)radius size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
 
-+ (UIImage *)wqSetWQRadius:(WQRadius)radius image:(UIImage *)image size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor withContentMode:(UIViewContentMode)contentMode;
++ (UIImage *)setWQRadius:(WQRadius)radius image:(UIImage *)image size:(CGSize)size borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor withContentMode:(UIViewContentMode)contentMode;
 
 @end

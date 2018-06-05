@@ -7,7 +7,7 @@ static char wqOperationKey;
 
 @implementation UIView (RoundedCorner)
 
-- (void)wqSetShadowColor:(UIColor *)color shadowOffset:(CGSize)offset opacity:(CGFloat)opacity radius:(CGFloat)radius shadowHeight:(CGFloat)height {
+- (void)setShadowColor:(UIColor *)color shadowOffset:(CGSize)offset opacity:(CGFloat)opacity radius:(CGFloat)radius shadowHeight:(CGFloat)height {
     float allWidth = self.bounds.size.width;
     float allHeight = self.bounds.size.height;
     float x = self.bounds.origin.x;
@@ -47,27 +47,27 @@ static char wqOperationKey;
     });
 }
 
-- (void)wqSetCornerRadius:(CGFloat)radius backgroundColor:(UIColor *)color {
-    [self wqSetCornerRadius:radius image:nil borderColor:nil borderWidth:0 backgroundColor:color contentMode:UIViewContentModeScaleAspectFill];
+- (void)setCornerRadius:(CGFloat)radius backgroundColor:(UIColor *)color {
+    [self setCornerRadius:radius image:nil borderColor:nil borderWidth:0 backgroundColor:color contentMode:UIViewContentModeScaleAspectFill];
 }
 
-- (void)wqSetCornerWQRadius:(WQRadius)radius backgroundColor:(UIColor *)color {
+- (void)setCornerWQRadius:(WQRadius)radius backgroundColor:(UIColor *)color {
     [self wq_cancelOperation];
-    [self wqSetCornerWQRadius:radius image:nil borderColor:nil borderWidth:0 backgroundColor:color contentMode:UIViewContentModeScaleAspectFill size:CGSizeZero forState:UIControlStateNormal completion:nil];
+    [self setCornerWQRadius:radius image:nil borderColor:nil borderWidth:0 backgroundColor:color contentMode:UIViewContentModeScaleAspectFill size:CGSizeZero forState:UIControlStateNormal completion:nil];
 }
 
-- (void)wqSetCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor {
-    [self wqSetCornerRadius:radius image:nil borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor contentMode:UIViewContentModeScaleAspectFill];
+- (void)setCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor {
+    [self setCornerRadius:radius image:nil borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor contentMode:UIViewContentModeScaleAspectFill];
 }
 
-- (void)wqSetCornerWQRadius:(WQRadius)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor {
+- (void)setCornerWQRadius:(WQRadius)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor {
     [self wq_cancelOperation];
-    [self wqSetCornerWQRadius:radius image:nil borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor contentMode:UIViewContentModeScaleAspectFill size:CGSizeZero forState:UIControlStateNormal completion:nil];
+    [self setCornerWQRadius:radius image:nil borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor contentMode:UIViewContentModeScaleAspectFill size:CGSizeZero forState:UIControlStateNormal completion:nil];
 }
 
-- (void)wqSetCornerRadius:(CGFloat)radius image:(UIImage *)image borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor contentMode:(UIViewContentMode)contentMode {
+- (void)setCornerRadius:(CGFloat)radius image:(UIImage *)image borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor contentMode:(UIViewContentMode)contentMode {
     [self wq_cancelOperation];
-    [self wqSetCornerWQRadius:WQRadiusMake(radius, radius, radius, radius) image:image borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor contentMode:contentMode size:CGSizeZero forState:UIControlStateNormal completion:nil];
+    [self setCornerWQRadius:WQRadiusMake(radius, radius, radius, radius) image:image borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor contentMode:contentMode size:CGSizeZero forState:UIControlStateNormal completion:nil];
 }
 
 + (void)load {
@@ -79,17 +79,17 @@ static char wqOperationKey;
     return operation;
 }
 
-- (void)wqSetCornerWQRadiusWithOperation:(NSOperation *)operation {
+- (void)setCornerWQRadiusWithOperation:(NSOperation *)operation {
     objc_setAssociatedObject(self, &wqOperationKey, operation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)wq_cancelOperation {
     NSOperation *operation = [self wq_getOperation];
     [operation cancel];
-    [self wqSetCornerWQRadiusWithOperation:nil];
+    [self setCornerWQRadiusWithOperation:nil];
 }
 
-- (void)wqSetCornerWQRadius:(WQRadius)radius image:(UIImage *)image borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor contentMode:(UIViewContentMode)contentMode size:(CGSize)size forState:(UIControlState)state completion:(WQRoundedCornerCompletionBlock)completion {
+- (void)setCornerWQRadius:(WQRadius)radius image:(UIImage *)image borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor contentMode:(UIViewContentMode)contentMode size:(CGSize)size forState:(UIControlState)state completion:(WQRoundedCornerCompletionBlock)completion {
     
     __block CGSize _size = size;
     
@@ -104,7 +104,7 @@ static char wqOperationKey;
             });
         }
         CGSize pixelSize = CGSizeMake(pixel(_size.width), pixel(_size.height));
-        UIImage *currentImage = [UIImage wqSetWQRadius:radius image:(UIImage *)image size:pixelSize borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor withContentMode:contentMode];
+        UIImage *currentImage = [UIImage setWQRadius:radius image:(UIImage *)image size:pixelSize borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor withContentMode:contentMode];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             __strong typeof(weakSelf) self = weakSelf;
@@ -123,7 +123,7 @@ static char wqOperationKey;
         }];
     }];
     
-    [self wqSetCornerWQRadiusWithOperation:blockOperation];
+    [self setCornerWQRadiusWithOperation:blockOperation];
     [wqOperationQueue addOperation:blockOperation];
 }
 

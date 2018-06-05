@@ -19,26 +19,26 @@ typedef void (^WQRoundedCornerCompletionBlock)(UIImage *image);
  @param radius   阴影的半径
  @param height   阴影的高度
  */
-- (void)wqSetShadowColor:(UIColor *)color shadowOffset:(CGSize)offset opacity:(CGFloat)opacity radius:(CGFloat)radius shadowHeight:(CGFloat)height;
+- (void)setShadowColor:(UIColor *)color shadowOffset:(CGSize)offset opacity:(CGFloat)opacity radius:(CGFloat)radius shadowHeight:(CGFloat)height;
 
 /**
    设置圆角背景
  */
-- (void)wqSetCornerRadius:(CGFloat)radius backgroundColor:(UIColor *)color;
+- (void)setCornerRadius:(CGFloat)radius backgroundColor:(UIColor *)color;
 
 /**
    设置圆角背景
  */
-- (void)wqSetCornerWQRadius:(WQRadius)radius backgroundColor:(UIColor *)color;
+- (void)setCornerWQRadius:(WQRadius)radius backgroundColor:(UIColor *)color;
 
 /**
    设置圆角边框
  */
-- (void)wqSetCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
+- (void)setCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
 
 /**
    设置圆角边框
  */
-- (void)wqSetCornerWQRadius:(WQRadius)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
+- (void)setCornerWQRadius:(WQRadius)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
 
 @end
